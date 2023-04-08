@@ -40,7 +40,7 @@ startButton.addEventListener('click', () => {
 inputArea.addEventListener('input', () => {
   if (inputArea.value.trim() === currentWord) {
     score++;
-    scoreSpan.textContent = "Score: " + score;
+    scoreSpan.textContent = "Score: " + score ;
     currentWord = getRandomWord();
     inputArea.value = '';
     message.textContent = currentWord;
@@ -51,7 +51,7 @@ function startGame() {
   score = 0;
   timer = 30;
   currentWord = getRandomWord();
-  scoreSpan.textContent = "Score: " + score;
+  scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
   inputArea.disabled = false;
   inputArea.focus();
@@ -64,10 +64,12 @@ function getRandomWord() {
   return wordList[index];
 }
 
+
 function countdown() {
+
   const countdownInterval = setInterval(() => {
     timer--;
-    message.textContent = `${currentWord} (${timer})`;
+    message.textContent = `${currentWord} ⏱${timer}`;
     if (timer === 0) {
       clearInterval(countdownInterval);
       endGame();
