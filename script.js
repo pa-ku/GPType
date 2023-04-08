@@ -1,4 +1,23 @@
-const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'fig', 'grape','monorriel', 'vamo chat gpt', 'dejame un like', 'subscribite'];
+const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'fig', 'grape','monorriel', 'vamo chat gpt', 'dejame un like', 'suscribite',  'cocoliso',
+'churumbel',
+'marmota',
+'patatús',
+'pachanga',
+'chiquitín',
+'paripé',
+'chorizo',
+'patán',
+'pijama',
+'panchito',
+'piltrafilla',
+'pitufo',
+'papafrita',
+'chiquilicuatre',
+'cachondo',
+'cacahuete',
+'petimetre',
+'pendejada',
+'chorrada'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');

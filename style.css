@@ -29,7 +29,7 @@ body{ margin:0;
   .game {
 
     height: 300px;
-    width: 600px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +41,8 @@ body{ margin:0;
   
   #start-button{
     background-color: #8be2ff;
-    font-size: 2rem;
+ 
+    font-size: clamp(5rem,2vw,2rem);
     border: 0;
     border-radius: 8px;
     cursor: pointer;
@@ -63,3 +64,31 @@ body{ margin:0;
     color: white;
     padding: 5px;
   }
+
+  @media(min-width:500px)
+
+  {
+
+    #start-button{
+
+      font-size: 4rem;
+    margin-block: 2rem;
+    }
+    .preparate{
+      font-size: 3rem;
+    
+    }
+
+    #score{
+      font-size: 4rem;
+    }
+    #input-area{
+      font-size: 5rem;
+      background-color: #11111100;
+      border: 2px solid white;
+      border-radius: 8px;
+      color: white;
+      padding: 5px;
+    }
+  }
+  
