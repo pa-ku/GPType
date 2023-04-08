@@ -1,4 +1,4 @@
-const wordList = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig', 'grape'];
+const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'fig', 'grape','monorriel', 'vamo chat gpt', 'dejame un like', 'subscribite'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
@@ -8,11 +8,11 @@ const message = gameArea.querySelector('p');
 
 let currentWord = '';
 let score = 0;
-let timer = 10;
+let timer = 30;
 
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
-  message.textContent = 'Get ready...';
+  message.textContent = 'Vamo a darle...';
   setTimeout(() => {
     startGame();
   }, 2000);
@@ -30,7 +30,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 10;
+  timer = 30;
   currentWord = getRandomWord();
   scoreSpan.textContent = score;
   inputArea.value = '';
