@@ -1,4 +1,4 @@
-const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapu', 'grape','monorriel', 'vamo chat gpt', 'suscribite',  'cocoliso'];
+const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'suscribite',  'cocoliso','arraw','vick vaporub', 'duff','moe','rosalisa','wasuwasol','bizzatrap','chinchunpin','motomami','sustito','oliwi'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
@@ -41,12 +41,18 @@ function startGame() {
 }
 
 function getRandomWord() {
-  const index = Math.floor(Math.random() * wordList.length);
+ const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+  const index = Math.floor(random(0, wordList.length));
+ /*  const index = Math.floor(Math.random() * wordList.length); */
   return wordList[index];
 }
 
 
 function countdown() {
+
+ 
+
 
   const countdownInterval = setInterval(() => {
     timer--;
@@ -60,6 +66,6 @@ function countdown() {
 
 function endGame() {
   inputArea.disabled = true;
-  message.textContent = `Perdiste motopapu 🤷‍♂️🤷‍♀️, tenes un ${score}`;
+  message.textContent = `Se termino el tiempo motopapu 🤷‍♂️`;
   startButton.disabled = false;
 }
