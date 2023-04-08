@@ -72,10 +72,13 @@ body{ margin:0;
   }
 
   #input-area{
-    font-size: 2rem;
+    font-size: 1.5rem;
     background-color: #11111100;
-    border: 2px solid white;
-    border-radius: 8px;
+    border: 0px;
+    border-bottom: 4px solid white;
+    border-style: dotted;
+    outline: none;
+
     color: white;
     padding: 5px;
   }
@@ -99,12 +102,13 @@ body{ margin:0;
     }
     #input-area{
       font-size: 4rem;
-    
-      background-color: #11111100;
-      border: 2px solid white;
-      border-radius: 8px;
+      border-bottom: 8px solid white;
+      border-style: dotted;
       color: white;
       padding: 5px;
+    }
+    .title{
+      font-size: 10rem;
     }
   }
   

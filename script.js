@@ -1,10 +1,10 @@
 const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'fig', 'grape','monorriel', 'vamo chat gpt', 'dejame un like', 'suscribite',  'cocoliso',
 'churumbel',
 'marmota',
-'patatús',
+'patatus',
 'pachanga',
-'chiquitín',
-'paripé',
+'chiquitin',
+'paripe',
 'chorizo',
 'patán',
 'pijama',
@@ -40,7 +40,7 @@ startButton.addEventListener('click', () => {
 inputArea.addEventListener('input', () => {
   if (inputArea.value.trim() === currentWord) {
     score++;
-    scoreSpan.textContent = score;
+    scoreSpan.textContent = "Score: " + score;
     currentWord = getRandomWord();
     inputArea.value = '';
     message.textContent = currentWord;
@@ -51,7 +51,7 @@ function startGame() {
   score = 0;
   timer = 30;
   currentWord = getRandomWord();
-  scoreSpan.textContent = score;
+  scoreSpan.textContent = "Score: " + score;
   inputArea.value = '';
   inputArea.disabled = false;
   inputArea.focus();
@@ -77,6 +77,6 @@ function countdown() {
 
 function endGame() {
   inputArea.disabled = true;
-  message.textContent = `Perdiste motopapu, tenes un ${score}, vuelva prontos`;
+  message.textContent = `Perdiste motopapu 🤷‍♂️🤷‍♀️, tenes un ${score}, vuelva prontos`;
   startButton.disabled = false;
 }
