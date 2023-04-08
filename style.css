@@ -40,16 +40,31 @@ body{ margin:0;
   }
   
   #start-button{
-    background-color: #8be2ff;
- 
-    font-size: clamp(5rem,2vw,2rem);
+    background-color: #00daa7;
+    padding: .5rem 2rem;
+    font-size: 2rem;
     border: 0;
     border-radius: 8px;
     cursor: pointer;
     transition: .5s;
+   /*  animation: biggy 5s infinite; */
   }
+
+/*  @keyframes biggy {
+  0%{
+    scale: 1;
+  }
+  50%{
+    scale: 0.8;
+  }
+  100%{
+    scale: 1;
+  }
+ } */
+
   #start-button:hover{
     background-color: #4cb3d5;
+    scale: 1.2;
   }
 
   #score{
@@ -65,7 +80,7 @@ body{ margin:0;
     padding: 5px;
   }
 
-  @media(min-width:500px)
+  @media(max-width:1200px)
 
   {
 
@@ -83,7 +98,8 @@ body{ margin:0;
       font-size: 4rem;
     }
     #input-area{
-      font-size: 5rem;
+      font-size: 4rem;
+    
       background-color: #11111100;
       border: 2px solid white;
       border-radius: 8px;
