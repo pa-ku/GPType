@@ -38,7 +38,7 @@ startButton.addEventListener('click', () => {
 });
 
 inputArea.addEventListener('input', () => {
-  if (inputArea.value.trim() === currentWord) {
+  if (inputArea.value.toLowerCase() === currentWord) {
     score++;
     scoreSpan.textContent = "Score: " + score ;
     currentWord = getRandomWord();
