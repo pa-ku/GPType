@@ -9,7 +9,9 @@ const timerClock = gameArea.querySelector('.timer');
 
 let currentWord = '';
 let score = 0;
-let timer = 10;
+let timer = 30;
+
+
 
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
@@ -33,7 +35,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 10;
+  timer = 30;
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
