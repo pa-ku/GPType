@@ -4,14 +4,17 @@ const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
 const scoreSpan = document.getElementById('score');
 const gameArea = document.querySelector('.game');
-const message = gameArea.querySelector('p');
+const message = gameArea.querySelector('.preparate');
+const timerClock = gameArea.querySelector('.timer');
 
 let currentWord = '';
 let score = 0;
-let timer = 30;
+let timer = 10;
 
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
+  startButton.style.filter = "grayscale(100%)";
+  startButton.innerHTML = "Playing";
   message.textContent = 'Vamo a darle...';
   setTimeout(() => {
     startGame();
@@ -30,7 +33,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 30;
+  timer = 10;
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
@@ -51,12 +54,10 @@ function getRandomWord() {
 
 function countdown() {
 
- 
-
-
   const countdownInterval = setInterval(() => {
     timer--;
-    message.textContent = `${currentWord} ⏱${timer}`;
+    message.textContent = `${currentWord}`;
+    timerClock.textContent = `⏱${timer}`;
     if (timer === 0) {
       clearInterval(countdownInterval);
       endGame();
@@ -64,8 +65,27 @@ function countdown() {
   }, 1000);
 }
 
+
 function endGame() {
   inputArea.disabled = true;
   message.textContent = `Se termino el tiempo motopapu 🤷‍♂️`;
   startButton.disabled = false;
+  startButton.style.filter = "grayscale(0%)";
+  startButton.innerHTML = "Restart";
+  updateHighScore();
 }
+
+function updateHighScore() {
+  const highScore = localStorage.getItem('highScore') || 0;
+  if (score > highScore) {
+    localStorage.setItem('highScore', score);
+  }
+}
+
+window.addEventListener('load', () => {
+  const highScore = localStorage.getItem('highScore');
+  if (highScore) {
+    // muestra el score mas alto en el inicio del juego
+    document.getElementById('high-score').textContent = `High Score: ${highScore}`;
+  }
+});
