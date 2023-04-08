@@ -77,6 +77,6 @@ function countdown() {
 
 function endGame() {
   inputArea.disabled = true;
-  message.textContent = `Game over! Your score is ${score}.`;
+  message.textContent = `Perdiste motopapu, tenes un ${score}, vuelva prontos`;
   startButton.disabled = false;
 }
