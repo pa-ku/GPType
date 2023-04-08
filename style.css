@@ -11,7 +11,21 @@ body{ margin:0;
     background: linear-gradient(to right, #30CFD0, #c43ad6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: start 2s;
 }
+
+@keyframes start {
+  0%{
+ 
+    opacity: 0;
+  }
+  100%{
+   
+    opacity: 1;
+  }
+}
+
+
 .container {
     
     margin: 0 auto;
@@ -27,9 +41,11 @@ body{ margin:0;
   }
   
   .game {
-
+  animation: show 3s 0.8s forwards;
+  transform-origin: top;
     height: 300px;
     width: 100%;
+    opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,25 +56,28 @@ body{ margin:0;
   }
   
   #start-button{
+    animation: show 2s 0.5s forwards;
+    transform-origin: center;
+    opacity: 0;
     background-color: #00daa7;
     padding: .5rem 2rem;
     font-size: 2rem;
     border: 0;
     border-radius: 8px;
     cursor: pointer;
-    transition: .5s;
+  
    /*  animation: biggy 5s infinite; */
   }
 
-/*  @keyframes biggy {
+  @keyframes show {
   0%{
-    scale: 1;
+    scale: 0;
+    opacity: 0;
   }
-  50%{
-    scale: 0.8;
-  }
+
   100%{
     scale: 1;
+    opacity: 1;
   }
  } */
 
