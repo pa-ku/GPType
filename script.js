@@ -1,4 +1,4 @@
-const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'suscribite',  'cocoliso','arraw','vick vaporub', 'duff','moe','rosalisa','wasuwasol','bizzatrap','chinchunpin','motomami','sustito','oliwi'];
+const wordList = ['Maluma', 'Tonco', 'pedropepe', 'cucamonga', 'Oruga', 'Motopapi', 'Grape','Monorriel', 'Chat gpt', 'Cosme',  'cocoliso','arraw','Vaporub', 'Duff','Moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','Fulanito','Cumbancha','Miciela','Mirei','Almondiga','Fatura','Pollajeria','Ñaco','Chuwaka','Murciegalo','sanma','Peladero','Chosma','Completo','Incompleto','Trompul','Tomaco','Vagamundo','Crocodilo','Toballa','disket','ester','piscore','Ipa'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
