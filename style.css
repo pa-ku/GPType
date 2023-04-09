@@ -43,6 +43,11 @@ body{ margin:0;
   
   .menu {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
   
   .game {
@@ -148,8 +153,8 @@ cursor: pointer;
 transition: 0.5s;
 display: flex;
 position: relative;
-right: 50px;
-top: 60px;
+right: 150px;
+top: 50px;
 }
 .btn-sound:hover *{
   stroke: red;
@@ -158,8 +163,8 @@ top: 60px;
   animation: start 1s forwards;
   background-color: rgba(245, 222, 179, 0);
   position: relative;
-  right: 50px;
-  top: 60px;
+  right: 150px;
+  top: 50px;
   border: none;
   width:30px;
   cursor: pointer;
@@ -180,7 +185,12 @@ width: 0;
 visibility: hidden;
 }
 
-
+.title-logo{
+  animation: start 2s forwards;
+  display: flex;
+  width: 150px;
+  margin-bottom: 1rem;
+}
 /*-------------------------
           mobile
 --------------------------*/
@@ -188,6 +198,12 @@ visibility: hidden;
   @media(max-width:1200px)
 
   {
+    .title-logo{
+      animation: start 2s forwards;
+      display: flex;
+      width:350px;
+      margin-bottom: 1rem;
+    }
 
     #start-button{
 
@@ -210,9 +226,7 @@ visibility: hidden;
       color: white;
       padding: 5px;
     }
-    .title{
-      font-size: 10rem;
-    }
+
     
 .timer{
   color: #ff63c1;
@@ -231,8 +245,8 @@ visibility: hidden;
   transition: 0.5s;
   display: flex;
   position: relative;
-  right: 100px;
-  top: 100px;
+  right: 300px;
+  top: 130px;
   }
   .btn-sound:hover *{
     stroke: red;
@@ -240,8 +254,8 @@ visibility: hidden;
   .btn-silence{
     background-color: rgba(245, 222, 179, 0);
     position: relative;
-    right: 100px;
-    top: 100px;
+    right: 300px;
+    top: 130px;
     border: none;
     width:80px;
     cursor: pointer;
