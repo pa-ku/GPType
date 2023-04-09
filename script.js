@@ -11,7 +11,9 @@ let currentWord = '';
 let score = 0;
 let timer = 30;
 
-
+let endSound = new Audio("hornet.wav");
+let updateSound = new Audio("update.wav");
+let yaySound = new Audio("yay.ogg");
 
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
@@ -33,6 +35,9 @@ inputArea.addEventListener('input', () => {
   }
 });
 
+let startSound = new Audio("button.wav");
+
+
 function startGame() {
   score = 0;
   timer = 30;
@@ -42,13 +47,16 @@ function startGame() {
   inputArea.disabled = false;
   inputArea.focus();
   message.textContent = currentWord;
+  startSound.play();
   countdown();
+  
 }
 
 function getRandomWord() {
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
   const shuffledWords = wordList.sort(() => Math.random() - 0.5);
   const index = Math.floor(random(0, shuffledWords.length));
+  updateSound.play();
   return shuffledWords[index];
 }
 
@@ -58,6 +66,7 @@ function countdown() {
     timer--;
     message.textContent = `${currentWord}`;
     timerClock.textContent = `⏱${timer}`;
+
     if (timer === 0) {
       clearInterval(countdownInterval);
       endGame();
@@ -72,13 +81,17 @@ function endGame() {
   startButton.disabled = false;
   startButton.style.filter = "grayscale(0%)";
   startButton.innerHTML = "Restart";
+  endSound.play();
   updateHighScore();
 }
+
+
 
 function updateHighScore() {
   const highScore = localStorage.getItem('highScore') || 0;
   if (score > highScore) {
     localStorage.setItem('highScore', score);
+/*     yaySound.play(); */
   }
 }
 
