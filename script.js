@@ -14,7 +14,41 @@ let timer = 30;
 let endSound = new Audio("hornet.wav");
 let updateSound = new Audio("update.wav");
 let yaySound = new Audio("yay.ogg");
+let startSound = new Audio("button.wav");
 
+
+/*-------------------------
+          SOUND 
+--------------------------*/
+
+const silenceSound = document.querySelector('.btn-silence')
+const activeSound = document.querySelector('.btn-sound')
+const muteCheckbox = document.getElementById('mute-checkbox');
+
+
+
+
+muteCheckbox.addEventListener('change', () => {
+  if (muteCheckbox.checked) {
+    endSound.volume = 0;
+    updateSound.volume = 0;
+    yaySound.volume = 0;
+    startSound.volume = 0;
+    activeSound.style.display="none"
+    silenceSound.style.display="flex"
+  } else {
+    endSound.volume = 1;
+    updateSound.volume = 1;
+    yaySound.volume = 1;
+    activeSound.style.display="flex"
+    silenceSound.style.display="none"
+  }
+});
+
+
+/*-------------------------
+          
+--------------------------*/
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
   startButton.style.filter = "grayscale(100%)";
@@ -35,7 +69,7 @@ inputArea.addEventListener('input', () => {
   }
 });
 
-let startSound = new Audio("button.wav");
+
 
 
 function startGame() {
@@ -102,3 +136,4 @@ window.addEventListener('load', () => {
     document.getElementById('high-score').textContent = `High Score: ${highScore}`;
   }
 });
+

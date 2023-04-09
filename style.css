@@ -136,6 +136,45 @@ body{ margin:0;
       text-align: center;
 }
 
+.btn-sound{
+background-color: rgba(245, 222, 179, 0);
+
+border: none;
+width:40px;
+cursor: pointer;
+transition: 0.5s;
+display: flex;
+position: relative;
+right: 100px;
+top: -160px;
+}
+.btn-sound:hover *{
+  stroke: red;
+}
+.btn-silence{
+  background-color: rgba(245, 222, 179, 0);
+  position: relative;
+  right: 100px;
+  top: -160px;
+  border: none;
+  width:40px;
+  cursor: pointer;
+  transition: 0.5s;
+  display: none;
+
+}
+.btn-silence:hover *{
+  stroke: #2bd800;
+}
+#mute-checkbox{
+opacity: 0;
+position: absolute;
+margin: 0;
+padding: 0;
+width: 0;
+}
+
+
 /*-------------------------
           mobile
 --------------------------*/
@@ -176,5 +215,33 @@ body{ margin:0;
 #high-score{
   font-size: 4rem;
 }
+
+.btn-sound{
+  background-color: rgba(245, 222, 179, 0);
+  
+  border: none;
+  width:80px;
+  cursor: pointer;
+  transition: 0.5s;
+  display: flex;
+  position: relative;
+  right: 100px;
+  top: -400px;
+  }
+  .btn-sound:hover *{
+    stroke: red;
+  }
+  .btn-silence{
+    background-color: rgba(245, 222, 179, 0);
+    position: relative;
+    right: 100px;
+    top: -400px;
+    border: none;
+    width:80px;
+    cursor: pointer;
+    transition: 0.5s;
+    display: none;
+  
+  }
   }
   
