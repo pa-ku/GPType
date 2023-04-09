@@ -15,6 +15,8 @@ let endSound = new Audio("hornet.wav");
 let updateSound = new Audio("update.wav");
 let yaySound = new Audio("yay.ogg");
 let startSound = new Audio("button.wav");
+let onSound = new Audio("on.wav");
+
 
 
 /*-------------------------
@@ -36,12 +38,15 @@ muteCheckbox.addEventListener('change', () => {
     startSound.volume = 0;
     activeSound.style.display="none"
     silenceSound.style.display="flex"
+  
+ 
   } else {
     endSound.volume = 1;
     updateSound.volume = 1;
     yaySound.volume = 1;
     activeSound.style.display="flex"
     silenceSound.style.display="none"
+    onSound.play()
   }
 });
 
