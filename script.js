@@ -1,4 +1,4 @@
-const wordList = ['Maluma', 'Tonco', 'pedropepe', 'cucamonga', 'Oruga', 'Motopapi', 'Grape','Monorriel', 'Chat gpt', 'Cosme',  'cocoliso','arraw','Vaporub', 'Duff','Moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','Fulanito','Cumbancha','Miciela','Mirei','Almondiga','Fatura','Pollajeria','Ñaco','Chuwaka','Murciegalo','sanma','Peladero','Chosma','Completo','Incompleto','Trompul','Tomaco','Vagamundo','Crocodilo','Toballa','disket','ester','piscore','Ipa'];
+const wordList = ['maluma', 'Tonco', 'pedropepe', 'cucamonga', 'Oruga', 'Motopapi', 'Grape','monorriel', 'chat gpt', 'Cosme','cocoliso','arraw','vaporub', 'duff','Moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','fulanito','cumbancha','miciela','mirei','almondiga','fatura','pollajeria','ñaco','chuwaka','murciegalo','sanma','peladero','chosma','iompleto','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','ester','piscore','ipa'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
