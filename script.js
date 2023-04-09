@@ -44,6 +44,7 @@ muteCheckbox.addEventListener('change', () => {
     endSound.volume = 1;
     updateSound.volume = 1;
     yaySound.volume = 1;
+    startSound.volume = 1;
     activeSound.style.display="flex"
     silenceSound.style.display="none"
     onSound.play()
