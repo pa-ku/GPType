@@ -74,9 +74,7 @@ body{ margin:0;
   
   }
  #start-button:hover{
-/*   animation: hover 1s infinite; */
-  scale: 1;
-  opacity: 1;
+  background-color: #ff92d4;
   }
 
   @keyframes show {
