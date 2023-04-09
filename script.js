@@ -1,4 +1,4 @@
-const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'Oruga', 'Motopapi', 'Grape','monorriel', 'chat gpt', 'Cosme','cocoliso','arraw','vaporub', 'duff','Moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','fulanito','cumbancha','miciela','mirei','almondiga','fatura','pollajeria','ñaco','chuwaka','murciegalo','sanma','peladero','chosma','iompleto','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','ester','piscore','ipa'];
+const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'cosme','cocoliso','arraw','vaporub', 'duff','moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','fulanito','cumbancha','miciela','mirei','almondiga','fatura','pollajeria','ñaco','chuwaka','murciegalo','sanma','peladero','chosma','iompleto','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','ester','piscore','ipa'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
@@ -46,13 +46,11 @@ function startGame() {
 }
 
 function getRandomWord() {
- const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-  const index = Math.floor(random(0, wordList.length));
- /*  const index = Math.floor(Math.random() * wordList.length); */
-  return wordList[index];
+  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const shuffledWords = wordList.sort(() => Math.random() - 0.5);
+  const index = Math.floor(random(0, shuffledWords.length));
+  return shuffledWords[index];
 }
-
 
 function countdown() {
 
