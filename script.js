@@ -68,9 +68,6 @@ inputArea.addEventListener('input', () => {
     score++;
     scoreSpan.textContent = "Score: " + score ;
     currentWord = getRandomWord();
-    scoreSpan.style.animation = "none"; // elimina la animación anterior
-    void scoreSpan.offsetWidth; // reinicia la animación
-    scoreSpan.style.animation = "updateScore 1s"; // agrega la animación con una pausa
     inputArea.value = '';
     message.textContent = currentWord;
   }
