@@ -2,9 +2,7 @@
 /*-------------------------
           GAME
 --------------------------*/
-
-
-const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'cosme','cocoliso','arraw','vaporub', 'duff','moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','fulanito','cumbancha','miciela','mirei','almondiga','fatura','pollajeria','ñaco','chuwaka','murciegalo','sanma','peladero','chosma','completo','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','ester','piscore','ipa'];
+const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'cosme','cocoliso','arraw','vaporub', 'duff','moe','rosalisa','bizatrap','motomami','sustito','oliwi','lulu','oink','fulanito','cumbancha','miciela','mirei','almondiga','fatura','pollajeria','ñaco','chuwaka','murciegalo','sanma','peladero','chosma','completo','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','ester','piscore','bariloche','cruasan','unity','chowquepan','choroi','varvarco','andacogollo','huemul','lolog','trompezon','escorial','chocobo','troncochango','piopolo','obscuro','domuyo','efelante','esplanada','fregaplato','subrealista','beneficiencia','exeptico','discreccion','perjuicios','inaptitud','torticulis','imprimido','veniste','resilencia','indeleuble','vistima','pauperrimo'];
 
 const startButton = document.getElementById('start-button');
 const inputArea = document.getElementById('input-area');
@@ -16,7 +14,6 @@ const timerClock = gameArea.querySelector('.timer');
 let currentWord = '';
 let score = 0;
 let timer = 40;
-
 
 /*-------------------------
           SOUND 
@@ -30,9 +27,6 @@ let onSound = new Audio("on.wav");
 const silenceSound = document.querySelector('.btn-silence')
 const activeSound = document.querySelector('.btn-sound')
 const muteCheckbox = document.getElementById('mute-checkbox');
-
-
-
 
 muteCheckbox.addEventListener('change', () => {
   if (muteCheckbox.checked) {
@@ -96,6 +90,7 @@ function startGame() {
   countdown();
 }
 
+
 function getRandomWord() {
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
   const shuffledWords = wordList.sort(() => Math.random() - 0.5);
@@ -103,6 +98,7 @@ function getRandomWord() {
   updateSound.play();
   return shuffledWords[index];
 }
+
 
 function countdown() {
 
@@ -150,7 +146,6 @@ function reloadHighscore () {
     highScore2.textContent = `High Score: ${highScore}`;
   }
 }
-
 
 function endGame() {
   inputArea.disabled = true;
