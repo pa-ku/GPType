@@ -85,7 +85,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 10;
+  timer = 40;
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
