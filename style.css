@@ -149,8 +149,13 @@ font-weight: 500;
 
 
   #score{
-    color: #6aff6a; 
+    color: #6aff6a;
+    font-size: 1.5rem;
+    margin-top: 1rem; 
   }
+  #high-score{
+    font-size: 1.5rem;
+    }
 
   #input-area{
     font-size: 1.5rem;
@@ -166,12 +171,13 @@ font-weight: 500;
 
 .timer{
   color: #ff63c1;
-
+  font-size: 1.5rem;
 }
 
 .preparate{
   color: #ff5c5c;
       text-align: center;
+      font-size: 1.5rem;
 }
 
 .btn-sound{
@@ -266,6 +272,7 @@ visibility: hidden;
 
     #score{
       font-size: 4rem;
+    
     }
     #input-area{
       font-size: 4rem;
