@@ -1,3 +1,9 @@
+
+/*-------------------------
+          GAME
+--------------------------*/
+
+
 const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'cosme','cocoliso','arraw','vaporub', 'duff','moe','rosalisa','wasuwasol','bizatrap','chinchunpin','motomami','sustito','oliwi','lulu','oink','fulanito','cumbancha','miciela','mirei','almondiga','fatura','pollajeria','ñaco','chuwaka','murciegalo','sanma','peladero','chosma','completo','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','ester','piscore','ipa'];
 
 const startButton = document.getElementById('start-button');
@@ -9,19 +15,17 @@ const timerClock = gameArea.querySelector('.timer');
 
 let currentWord = '';
 let score = 0;
-let timer = 45;
-
-let endSound = new Audio("hornet.wav");
-let updateSound = new Audio("update.wav");
-let yaySound = new Audio("yay.ogg");
-let startSound = new Audio("button.wav");
-let onSound = new Audio("on.wav");
-
+let timer = 5;
 
 
 /*-------------------------
           SOUND 
 --------------------------*/
+let endSound = new Audio("hornet.wav");
+let updateSound = new Audio("update.wav");
+let yaySound = new Audio("yay.ogg");
+let startSound = new Audio("button.wav");
+let onSound = new Audio("on.wav");
 
 const silenceSound = document.querySelector('.btn-silence')
 const activeSound = document.querySelector('.btn-sound')
@@ -76,11 +80,9 @@ inputArea.addEventListener('input', () => {
 });
 
 
-
-
 function startGame() {
   score = 0;
-  timer = 45;
+  timer = 10;
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
@@ -89,7 +91,6 @@ function startGame() {
   message.textContent = currentWord;
   startSound.play();
   countdown();
-  
 }
 
 function getRandomWord() {
@@ -115,6 +116,39 @@ function countdown() {
 }
 
 
+let highScore2 = document.getElementById("high-score");
+
+function updateHighScore() {
+  const highScore = localStorage.getItem('highScore') || 0;
+  if (score > highScore) {
+    localStorage.setItem('highScore', score); 
+  }
+
+}
+
+window.addEventListener('load', () => {
+ 
+  const highScore = localStorage.getItem('highScore');
+  if (highScore) {
+    // muestra el score mas alto en el inicio del juego
+    highScore2.textContent = `High Score: ${highScore}`;
+  }
+
+});
+
+function reloadHighscore () {
+
+  const highScore = localStorage.getItem('highScore');
+  if (highScore) {
+    // muestra el score mas cuando termina el juego
+    highScore2.textContent = `High Score: ${highScore}`;
+  }
+
+}
+
+
+
+
 function endGame() {
   inputArea.disabled = true;
   message.textContent = `Se termino el tiempo motopapu 🤷‍♂️`;
@@ -123,23 +157,7 @@ function endGame() {
   startButton.innerHTML = "Restart";
   endSound.play();
   updateHighScore();
+  reloadHighscore();
 }
 
-
-
-function updateHighScore() {
-  const highScore = localStorage.getItem('highScore') || 0;
-  if (score > highScore) {
-    localStorage.setItem('highScore', score);
-/*     yaySound.play(); */
-  }
-}
-
-window.addEventListener('load', () => {
-  const highScore = localStorage.getItem('highScore');
-  if (highScore) {
-    // muestra el score mas alto en el inicio del juego
-    document.getElementById('high-score').textContent = `High Score: ${highScore}`;
-  }
-});
 

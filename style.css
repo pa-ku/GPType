@@ -32,6 +32,7 @@ body{ margin:0;
 }
 
 
+
 .container {
     
     margin: 0 auto;
@@ -114,6 +115,20 @@ font-weight: 500;
   }
 }
 
+@keyframes updateScore {
+  0%{
+    color: white;
+    scale: 1;
+  }
+  50%{
+    color: yellow;
+    scale: 1.5;
+  }
+    100%{
+      color: white;
+      scale:1;
+  }
+}
  
 
 
@@ -197,6 +212,19 @@ visibility: hidden;
   width: 150px;
   margin-bottom: 1rem;
 }
+
+@keyframes newScore {
+  0%{
+    scale:1;
+  }
+  50%{
+    scale:2;
+  }
+  100%{
+    scale:1;
+  }
+}
+
 /*-------------------------
           mobile
 --------------------------*/
@@ -240,7 +268,7 @@ visibility: hidden;
 }
 #high-score{
   font-size: 4rem;
-}
+  }
 
 .btn-sound{
   background-color: rgba(245, 222, 179, 0);
