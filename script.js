@@ -13,16 +13,22 @@ const timerClock = gameArea.querySelector('.timer');
 
 let currentWord = '';
 let score = 0;
-let timer = 40;
+let timer = 10;
 
 /*-------------------------
           SOUND 
 --------------------------*/
-let endSound = new Audio("hornet.wav");
-let updateSound = new Audio("update.wav");
-let yaySound = new Audio("yay.ogg");
-let startSound = new Audio("button.wav");
-let onSound = new Audio("on.wav");
+let startSound = new Audio("sounds/startButton.wav");
+
+let soundoffon = new Audio("sounds/soundChange.mp3");
+let onSound = new Audio("sounds/on.wav");
+let newwordSound = new Audio("sounds/bip.mp3");
+let newScore = new Audio("sounds/newscore.wav");
+let yaySound = new Audio("sounds/yay.ogg");
+let endSound = new Audio("sounds/hornet.wav");
+
+newScore.volume = 0.5;
+startSound.volume = 0.5;
 
 const silenceSound = document.querySelector('.btn-silence')
 const activeSound = document.querySelector('.btn-sound')
@@ -31,7 +37,7 @@ const muteCheckbox = document.getElementById('mute-checkbox');
 muteCheckbox.addEventListener('change', () => {
   if (muteCheckbox.checked) {
     endSound.volume = 0;
-    updateSound.volume = 0;
+    newwordSound.volume = 0;
     yaySound.volume = 0;
     startSound.volume = 0;
     activeSound.style.display="none"
@@ -40,12 +46,12 @@ muteCheckbox.addEventListener('change', () => {
  
   } else {
     endSound.volume = 1;
-    updateSound.volume = 1;
+    newwordSound.volume = 1;
     yaySound.volume = 1;
     startSound.volume = 1;
     activeSound.style.display="flex"
     silenceSound.style.display="none"
-    onSound.play()
+    soundoffon.play()
   }
 });
 
@@ -58,6 +64,7 @@ startButton.addEventListener('click', () => {
   startButton.style.filter = "grayscale(100%)";
   startButton.innerHTML = "Playing";
   message.textContent = 'Vamo a darle...';
+  startSound.play();
   setTimeout(() => {
     startGame();
   }, 2000);
@@ -76,14 +83,14 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 40;
+  timer = 10
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
   inputArea.disabled = false;
   inputArea.focus();
   message.textContent = currentWord;
-  startSound.play();
+  
   countdown();
 }
 
@@ -92,7 +99,7 @@ function getRandomWord() {
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
   const shuffledWords = wordList.sort(() => Math.random() - 0.5);
   const index = Math.floor(random(0, shuffledWords.length));
-  updateSound.play();
+  newwordSound.play();
   return shuffledWords[index];
 }
 
@@ -121,6 +128,7 @@ function updateHighScore() {
     highScore2.style.animation = "none"; // elimina la animación anterior
     void highScore2.offsetWidth; // reinicia la animación
     highScore2.style.animation = "updateHighScore 2s"; // agrega la animación con una pausa
+    newScore.play()
   }
 
 }
@@ -146,7 +154,7 @@ function reloadHighscore () {
 
 function endGame() {
   inputArea.disabled = true;
-  message.textContent = `Se termino el tiempo motopapu 🤷‍♂️`;
+  message.textContent = `Se termino el tiempo!`;
   startButton.disabled = false;
   startButton.style.filter = "grayscale(0%)";
   startButton.innerHTML = "Restart";
