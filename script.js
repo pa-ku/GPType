@@ -74,6 +74,7 @@ inputArea.addEventListener('input', () => {
     score++;
     scoreSpan.textContent = "Score: " + score ;
     currentWord = getRandomWord();
+    scoreSpan.style.animation = "updateScore 1s";
     inputArea.value = '';
     message.textContent = currentWord;
   }

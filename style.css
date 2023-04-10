@@ -122,7 +122,7 @@ font-weight: 500;
   }
   50%{
     color: yellow;
-    scale: 1.5;
+    scale: 1.2;
   }
     100%{
       color: white;
@@ -133,8 +133,7 @@ font-weight: 500;
 
 
   #score{
-    color: rgb(106, 255, 106);
- 
+    color: rgb(106, 255, 106); 
   }
 
   #input-area{
