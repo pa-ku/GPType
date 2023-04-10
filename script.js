@@ -13,7 +13,7 @@ const timerClock = gameArea.querySelector('.timer');
 
 let currentWord = '';
 let score = 0;
-let timer = 10;
+let timer = 40;
 
 /*-------------------------
           SOUND 
@@ -83,7 +83,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 10
+  timer = 40
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
