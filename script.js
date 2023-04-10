@@ -15,7 +15,7 @@ const timerClock = gameArea.querySelector('.timer');
 
 let currentWord = '';
 let score = 0;
-let timer = 5;
+let timer = 40;
 
 
 /*-------------------------
@@ -82,7 +82,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 10;
+  timer = 40;
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
@@ -143,10 +143,7 @@ function reloadHighscore () {
     // muestra el score mas cuando termina el juego
     highScore2.textContent = `High Score: ${highScore}`;
   }
-
 }
-
-
 
 
 function endGame() {
