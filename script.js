@@ -74,7 +74,9 @@ inputArea.addEventListener('input', () => {
     score++;
     scoreSpan.textContent = "Score: " + score ;
     currentWord = getRandomWord();
-    scoreSpan.style.animation = "updateScore 1s";
+    scoreSpan.style.animation = "none"; // elimina la animación anterior
+    void scoreSpan.offsetWidth; // reinicia la animación
+    scoreSpan.style.animation = "updateScore 1s"; // agrega la animación con una pausa
     inputArea.value = '';
     message.textContent = currentWord;
   }
@@ -83,7 +85,7 @@ inputArea.addEventListener('input', () => {
 
 function startGame() {
   score = 0;
-  timer = 40;
+  timer = 10;
   currentWord = getRandomWord();
   scoreSpan.textContent = "Score: " + score ;
   inputArea.value = '';
@@ -123,6 +125,9 @@ function updateHighScore() {
   const highScore = localStorage.getItem('highScore') || 0;
   if (score > highScore) {
     localStorage.setItem('highScore', score); 
+    highScore2.style.animation = "none"; // elimina la animación anterior
+    void highScore2.offsetWidth; // reinicia la animación
+    highScore2.style.animation = "updateHighScore 2s"; // agrega la animación con una pausa
   }
 
 }
