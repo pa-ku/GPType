@@ -53,9 +53,14 @@ body{ margin:0;
     font-family: Arial, sans-serif;
   }
   
-  #start-button{
+  .buttons-wrapper{
+    display: flex;
+    gap: 0.5rem;
+  }
+  .start-button{
     animation: show 2s 0.8s forwards;
     transform-origin: center;
+    display: flex;
     opacity: 0;
     background-color: #009389;
     padding: 0rem 0.5rem;
@@ -69,10 +74,26 @@ color: #111;
 font-weight: 500;  
 margin-top: 1rem;
   }
- #start-button:hover{
-  background-color: #00d3c5;
-  border: 4px solid #009288;
-  }
+  .start-button:hover{
+    background-color: #00d3c5;
+    border: 4px solid #009288;
+    }
+
+.reset-button{
+  animation: show 0.2s 0s forwards;
+  transform-origin: center;
+  filter: brightness(0.9);
+  background-color: #c83a3a;
+  border: 4px solid #961212;
+  display: none;
+}
+.reset-button:hover{
+  background-color: #c62a2a;
+  border: 4px solid #961212;
+  filter: brightness(1.1);
+}
+
+ 
 
   @keyframes show {
     0%{
@@ -232,7 +253,7 @@ visibility: hidden;
       margin-bottom: 1rem;
     }
 
-    #start-button{
+    .start-button{
 
       font-size: 4rem;
     margin-block: 5rem;

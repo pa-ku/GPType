@@ -1,10 +1,7 @@
-
-/*-------------------------
-          GAME
---------------------------*/
 const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'cosme','cocoliso','arraw','vaporub', 'duff','rosalisa','bizatrap','motomami','sustito','fulanito','cumbancha','miciela','almondiga','fatura','pollajeria','chuwaka','murciegalo','peladero','completo','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','piscore','cruasan','chowquepan','choroi','trompezon','chocobo','troncochango','piopolo','obscuro','efelante','esplanada','fregaplato','subrealista','beneficiencia','exeptico','discreccion','perjuicios','inaptitud','torticulis','imprimido','veniste','resilencia','indeleuble','vistima','pauperrimo','surrealista','vicisitud','infringir','desfenestrado','pasterizado','yoistik'];
 
 const startButton = document.getElementById('start-button');
+const resetButton = document.getElementById('reset-button');
 
 const inputArea = document.getElementById('input-area');
 const scoreSpan = document.getElementById('score');
@@ -20,50 +17,49 @@ let timer = 40;
 /*-------------------------
           SOUND MANAGER
 --------------------------*/
-
-const startSound = new Audio("sounds/startButton.wav");
-const soundoffon = new Audio("sounds/soundChange.mp3");
-const newwordSound = new Audio("sounds/bip.mp3");
-const newScore = new Audio("sounds/newscore.wav");
-const yaySound = new Audio("sounds/yay.ogg");
-const endSound = new Audio("sounds/hornet.wav");
-
-newScore.volume = 0.5;
-startSound.volume = 0.5;
-soundoffon.volume = 0.5;
-
 const silenceSound = document.querySelector('.btn-silence')
 const activeSound = document.querySelector('.btn-sound')
 const muteCheckbox = document.getElementById('mute-checkbox');
 
+const audioManager = new Map();
+audioManager.set('startGame', new Audio("sounds/startButton.wav"));
+audioManager.set('muteButton', new Audio("sounds/muteButton.mp3"));
+audioManager.set('newWord', new Audio("sounds/newWord.mp3"));
+audioManager.set('newScore', new Audio("sounds/newscore.wav"));
+audioManager.set('endGame', new Audio("sounds/endGame.wav"));
+
+
+
+audioManager.get('newScore').volume = 0.5;
+audioManager.get('startGame').volume = 0.5;
+audioManager.get('muteButton').volume = 0.5;
+audioManager.get('endGame').volume = 0.5;
+
+
 muteCheckbox.addEventListener('change', () => {
   if (muteCheckbox.checked) {
-    endSound.volume = 0;
-    newwordSound.volume = 0;
-    yaySound.volume = 0;
-    startSound.volume = 0;
-    newScore.volume = 0;
-    activeSound.style.display="none"
-    silenceSound.style.display="flex"
+    audioManager.forEach(sound => {
+      sound.volume = 0;
+    });
+    activeSound.style.display = "none"
+    silenceSound.style.display = "flex"
   } else {
-    endSound.volume = 1;
-    newwordSound.volume = 1;
-    yaySound.volume = 1;
-    startSound.volume = 1;
-    newScore.volume = 1;
-    activeSound.style.display="flex"
-    silenceSound.style.display="none"
-    soundoffon.play()
-  }})
+    audioManager.forEach(sound => {
+      sound.volume = 1;
+    });
+    activeSound.style.display = "flex"
+    silenceSound.style.display = "none"
+    audioManager.get('muteButton').play()
+  }
+})
 
-/* END SOUNDS */
 
 startButton.addEventListener('click',() => {
   startButton.disabled = true;
   startButton.style.filter = "grayscale(100%)";
   startButton.textContent  = "Playing";
   message.textContent = 'Vamo a darle...';
-  startSound.play();
+  audioManager.get('startGame').play();
   setTimeout(() => {
     startGame();
   }, 2000);
@@ -79,6 +75,10 @@ inputArea.addEventListener('input',() => {
     message.textContent = currentWord;
   }})
 
+  resetButton.addEventListener('click', () =>{
+    timer = 1;
+    resetButton.style.display = 'none'
+  })
 
 
 function startGame() {
@@ -88,6 +88,7 @@ function startGame() {
   scoreSpan.textContent = `Score: ${score}`;
   inputArea.value = '';
   inputArea.disabled = false;
+  resetButton.style.display = 'flex';
   inputArea.focus();
   message.textContent = currentWord;
   countdown()
@@ -99,10 +100,9 @@ function getRandomWord() {
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
   const shuffledWords = lowercaseWords.sort(() => Math.random());
   const index = Math.floor(random(0, shuffledWords.length));
-  newwordSound.play();
+  audioManager.get('newWord').play();
   return shuffledWords[index];
 }
-
 
 
 function countdown() {
@@ -110,14 +110,14 @@ function countdown() {
     timer--;
     message.textContent = `${currentWord}`;
     timerClock.textContent = `⏱${timer}`;
-    if (timer === 0) {
+    if (timer <= 0) {
       clearInterval(countdownInterval);
       endGame();
     }
   }, 1000)}
 
 
-let highScore2 = document.getElementById("high-score");
+const highScore2 = document.getElementById("high-score");
 
 function updateHighScore() {
   const highScore = localStorage.getItem('highScore') || 0;
@@ -126,7 +126,8 @@ function updateHighScore() {
     highScore2.style.animation = "none"; // elimina la animación anterior
     void highScore2.offsetWidth; // reinicia la animación
     highScore2.style.animation = "updateHighScore 2s"; // agrega la animación con una pausa
-    newScore.play()
+   
+    audioManager.get('newWord').play();
   }}
 
 window.addEventListener('load', () => {
@@ -149,7 +150,8 @@ function endGame() {
   startButton.disabled = false;
   startButton.style.filter = "grayscale(0%)";
   startButton.textContent = "Restart";
-  endSound.play();
+
+  audioManager.get('endGame').play();
   updateHighScore();
   reloadHighscore();
 }
