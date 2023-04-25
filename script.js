@@ -77,7 +77,7 @@ inputArea.addEventListener('input',() => {
 
   resetButton.addEventListener('click', () =>{
     timer = 1;
-    
+
   })
 
 
@@ -144,9 +144,10 @@ function reloadHighscore () {
     highScore2.textContent = `High Score: ${highScore}`;
   }}
 
+
 function endGame() {
   inputArea.disabled = true;
-  message.textContent = `Se termino el tiempo!`;
+  message.textContent = `Se termino el tiempo! 😿`;
   startButton.disabled = false;
   startButton.style.filter = "grayscale(0%)";
   startButton.textContent = "Restart";

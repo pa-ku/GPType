@@ -187,7 +187,8 @@ right: 150px;
 top: 48px;
 }
 .btn-sound:hover *{
-  stroke: #ff5c5c;
+  fill: #ff5c5c !important;
+
 }
 .btn-silence{
   animation: start 1s forwards;
@@ -203,17 +204,15 @@ top: 48px;
 
 }
 .btn-silence:hover *{
-  stroke: #6aff6a;
+  fill: #6aff6a !important;
 }
 #mute-checkbox{
 opacity: 0;
 position: absolute;
-border: 2px solid #6aff6a;
 margin: 0;
 padding: 0;
 width: 0;
 visibility: hidden;
-
 }
 
 .mute-label{
