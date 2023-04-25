@@ -77,7 +77,7 @@ inputArea.addEventListener('input',() => {
 
   resetButton.addEventListener('click', () =>{
     timer = 1;
-    resetButton.style.display = 'none'
+    
   })
 
 
@@ -150,7 +150,7 @@ function endGame() {
   startButton.disabled = false;
   startButton.style.filter = "grayscale(0%)";
   startButton.textContent = "Restart";
-
+  resetButton.style.display = 'none'
   audioManager.get('endGame').play();
   updateHighScore();
   reloadHighscore();
