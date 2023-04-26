@@ -1,4 +1,4 @@
-const wordList = ['maluma', 'tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'chat gpt', 'cosme','cocoliso','arraw','vaporub', 'duff','rosalisa','bizatrap','motomami','sustito','fulanito','cumbancha','miciela','almondiga','fatura','pollajeria','chuwaka','murciegalo','peladero','completo','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','piscore','cruasan','chowquepan','choroi','trompezon','chocobo','troncochango','piopolo','obscuro','efelante','esplanada','fregaplato','subrealista','beneficiencia','exeptico','discreccion','perjuicios','inaptitud','torticulis','imprimido','veniste','resilencia','indeleuble','vistima','pauperrimo','surrealista','vicisitud','infringir','desfenestrado','pasterizado','yoistik'];
+const wordList = ['tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'cosme','cocoliso','arraw','vaporub', 'duff','rosalisa','bizatrap','motomami','sustito','fulanito','cumbancha','miciela','almondiga','fatura','pollajeria','chuwaka','murciegalo','peladero','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','piscore','cruasan','chowquepan','choroi','trompezon','chocobo','troncochango','piopolo','obscuro','efelante','esplanada','fregaplato','subrealista','beneficiencia','exeptico','discreccion','perjuicios','inaptitud','torticulis','imprimido','veniste','resilencia','indeleuble','vistima','pauperrimo','surrealista','vicisitud','infringir','desfenestrado','pasterizado','yoistik'];
 
 const startButton = document.getElementById('start-button');
 const resetButton = document.getElementById('reset-button');
@@ -23,17 +23,11 @@ const muteCheckbox = document.getElementById('mute-checkbox');
 
 const audioManager = new Map();
 audioManager.set('startGame', new Audio("sounds/startButton.wav"));
-audioManager.set('muteButton', new Audio("sounds/muteButton.mp3"));
+audioManager.set('muteButton', new Audio("sounds/on.wav"));
 audioManager.set('newWord', new Audio("sounds/newWord.mp3"));
 audioManager.set('newScore', new Audio("sounds/newscore.wav"));
-audioManager.set('endGame', new Audio("sounds/endGame.wav"));
+audioManager.set('resetButton', new Audio("sounds/resetButton.wav"));
 
-
-
-audioManager.get('newScore').volume = 0.5;
-audioManager.get('startGame').volume = 0.5;
-audioManager.get('muteButton').volume = 0.5;
-audioManager.get('endGame').volume = 0.5;
 
 
 muteCheckbox.addEventListener('change', () => {
@@ -75,9 +69,11 @@ inputArea.addEventListener('input',() => {
     message.textContent = currentWord;
   }})
 
+
+
   resetButton.addEventListener('click', () =>{
     timer = 1;
-
+  audioManager.get('resetButton').play();
   })
 
 
@@ -125,9 +121,9 @@ function updateHighScore() {
     localStorage.setItem('highScore', score); 
     highScore2.style.animation = "none"; // elimina la animación anterior
     void highScore2.offsetWidth; // reinicia la animación
+    audioManager.get('newScore').play();
     highScore2.style.animation = "updateHighScore 2s"; // agrega la animación con una pausa
-   
-    audioManager.get('newWord').play();
+ 
   }}
 
 window.addEventListener('load', () => {
@@ -142,6 +138,7 @@ function reloadHighscore () {
   if (highScore !== null) {
     // muestra el score mas cuando termina el juego
     highScore2.textContent = `High Score: ${highScore}`;
+
   }}
 
 
@@ -152,9 +149,14 @@ function endGame() {
   startButton.style.filter = "grayscale(0%)";
   startButton.textContent = "Restart";
   resetButton.style.display = 'none'
-  audioManager.get('endGame').play();
   updateHighScore();
   reloadHighscore();
-}
+};
 
 
+const resetScore = document.getElementById('resetScore')
+
+resetScore.addEventListener('click', () =>{
+  localStorage.clear();
+  location.reload();
+})
