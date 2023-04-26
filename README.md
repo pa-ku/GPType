@@ -1,5 +1,9 @@
 <h2> GPTyping game ⌨</h2>
-Un pequeño juego de escribir palabras creado con GPT, el diseño es mio <br>
-Cuenta con Local Storage para poder guardar el puntaje maximo! <br>
+
+Una pequeña app de escribir palabras comunmente mal pronunciadas. cuenta con Local Storage para guardar el puntaje mas alto conseguido, sai como una animacion y sonido unico para cada vez que se logre alcanzar superarlo.
 <br>
+
 Link: https://gptype.onedev.com.ar/
+
+Stack:
+Html / Css / javascript
