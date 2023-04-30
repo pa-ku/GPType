@@ -81,7 +81,6 @@ margin-top: 1rem;
     }
 
 .reset-button{
-  animation: show 0.2s 0s forwards;
   transform-origin: center;
   filter: brightness(0.9);
   background-color: #c83a3a;
@@ -254,10 +253,16 @@ font-size: 1rem;
   cursor: pointer;
   padding: 0.5rem;
   margin-top:2rem ;
+  opacity: 0;
+  animation: show 3s 1s forwards;
+  transition-duration: 0.4s;
+  border-radius: 9px;
 }
 
 #resetScore:hover{
 color: #c83a3a;
+
+box-shadow: 0px 0px 15px 2px #c83a3a;
 }
 /*-------------------------
           mobile
