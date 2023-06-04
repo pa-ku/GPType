@@ -41,19 +41,19 @@ muteCheckbox.addEventListener('change', () => {
     audioManager.forEach(sound => {
       sound.volume = 1;
     });
+    audioManager.get('muteButton').play()
     activeSound.style.display = "flex"
     silenceSound.style.display = "none"
-    audioManager.get('muteButton').play()
   }
 })
 
 
 startButton.addEventListener('click',() => {
+  audioManager.get('startGame').play();
   startButton.disabled = true;
   startButton.style.filter = "grayscale(100%)";
   startButton.textContent  = "Playing";
   message.textContent = 'Vamo a darle...';
-  audioManager.get('startGame').play();
   setTimeout(() => {
     startGame();
   }, 2000);
@@ -72,8 +72,8 @@ inputArea.addEventListener('input',() => {
 
 
   resetButton.addEventListener('click', () =>{
+    audioManager.get('resetButton').play();
     timer = 1;
-  audioManager.get('resetButton').play();
   })
 
 
@@ -90,15 +90,16 @@ function startGame() {
   countdown()
 }
 
-const lowercaseWords = wordList.map(wordList => wordList.toLowerCase());//transforma las palabras en minuscula
-
+const lowerWordList = wordList.map(wordList => wordList.toLowerCase());
 function getRandomWord() {
-  const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-  const shuffledWords = lowercaseWords.sort(() => Math.random());
-  const index = Math.floor(random(0, shuffledWords.length));
+
   audioManager.get('newWord').play();
-  return shuffledWords[index];
+  const randomIndex = Math.floor(Math.random()* lowerWordList.length)
+  return lowerWordList[randomIndex];
+
 }
+
+ 
 
 
 function countdown() {
@@ -118,12 +119,11 @@ const highScore2 = document.getElementById("high-score");
 function updateHighScore() {
   const highScore = localStorage.getItem('highScore') || 0;
   if (score > highScore) {
+    audioManager.get('newScore').play();
     localStorage.setItem('highScore', score); 
     highScore2.style.animation = "none"; // elimina la animación anterior
     void highScore2.offsetWidth; // reinicia la animación
-    audioManager.get('newScore').play();
     highScore2.style.animation = "updateHighScore 2s"; // agrega la animación con una pausa
- 
   }}
 
 window.addEventListener('load', () => {
