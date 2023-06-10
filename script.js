@@ -1,4 +1,5 @@
-const wordList = ['tonco', 'pedropepe', 'cucamonga', 'oruga', 'motopapi', 'grape','monorriel', 'cosme','cocoliso','arraw','vaporub', 'duff','rosalisa','bizatrap','motomami','sustito','fulanito','cumbancha','miciela','almondiga','fatura','pollajeria','chuwaka','murciegalo','peladero','incompleto','trompul','tomaco','vagamundo','crocodilo','toballa','disket','piscore','cruasan','chowquepan','choroi','trompezon','chocobo','troncochango','piopolo','obscuro','efelante','esplanada','fregaplato','subrealista','beneficiencia','exeptico','discreccion','perjuicios','inaptitud','torticulis','imprimido','veniste','resilencia','indeleuble','vistima','pauperrimo','surrealista','vicisitud','infringir','desfenestrado','pasterizado','yoistik'];
+const wordList = [ 'HTML','CSS','JavaScript','React','Angular','Vue','Node.js','Express','MongoDB','SQL','API','AJAX','DOM','Backend','Frontend','Framework','Git','GitHub','Responsive','SEO','Hosting','UI','UX','SASS','LESS','Webpack','Babel','REST','JSON','OAuth','CMS','Plugin','Debugging','Testing','Deployment','DevOps','Agile','Scrum','Database','SSL','Session','Cookie','Authentication','Authorization','Encryption','Performance','Cache','Router','Middleware','Component','Event','Callback','Promise','Async','Sync','Variable','Constant','Loop','Conditional','Function','Method','Class','Interface','Module','Package','Dependency','Error','Exception','Logging','Security','Cross-browser','Responsive','Mobile-first','Viewport','Pixel','API','Endpoint','HTTP','HTTPS','Request','Response','Status','Header','Body','GET','POST','PUT','DELETE','Patch','Validation','CRUD','Session','Token','Authentication','Authorization','Encryption','Hashing','Next.js','Styled Components','Single Page Application','Server-side Rendering','Static Site Generation','Virtual DOM','State Management','React Hooks','React Router','Context API','Redux','Redux Saga','React Native','CSS Grid','CSS Flexbox','Responsive Design','Media Queries','CSS Transitions','CSS Animations','CSS Preprocessors','CSS Architecture','HTML5','Semantic HTML','Web Accessibility','Progressive Web Apps','Web Performance','Code Splitting','Webpack Configuration','Unit Testing','Integration Testing','EndtoEnd Testing','Linting','Code Review','Version Control','Responsive Images','Browser Compatibility','Error Handling','User Authentication','User Authorization','Session Management','Web Security','Crosssite Scripting','Cross-site Request Forgery','Content Management System','Headless CMS','Search Engine Optimization','Google Analytics','User Experience Design','User Interface Design','Wireframing','Prototyping','Mobile-First Design','User Research','Information Architecture','Conversion Rate Optimization','Responsive Typography','Page Load Speed','Website'];
+
 
 const startButton = document.getElementById('start-button');
 const resetButton = document.getElementById('reset-button');
@@ -11,6 +12,8 @@ const message = document.querySelector('.preparate');
 
 
 let currentWord = '';
+
+
 let score = 0;
 let timer = 40;
 
@@ -51,18 +54,21 @@ muteCheckbox.addEventListener('change', () => {
 startButton.addEventListener('click',() => {
   audioManager.get('startGame').play();
   startButton.disabled = true;
+
   startButton.style.filter = "grayscale(100%)";
   startButton.textContent  = "Playing";
-  message.textContent = 'Vamo a darle...';
+  message.textContent = 'Preparate a escribir!';
   setTimeout(() => {
     startGame();
   }, 2000);
 })
 
 
+
 inputArea.addEventListener('input',() => {
   if (inputArea.value.toLowerCase() === currentWord) {
-    score++;
+    let wordLength = currentWord.length
+    score+= wordLength;
     scoreSpan.textContent = `Score: ${score}`;
     currentWord = getRandomWord();
     inputArea.value = '';
@@ -81,7 +87,7 @@ function startGame() {
   score = 0;
   timer = 40;
   currentWord = getRandomWord();
-  scoreSpan.textContent = `Score: ${score}`;
+  scoreSpan.textContent = `Score: ${score} `;
   inputArea.value = '';
   inputArea.disabled = false;
   resetButton.style.display = 'flex';
