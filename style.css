@@ -1,225 +1,242 @@
-*, *::before, *::after {
- box-sizing: border-box;
-font-family: poppins;
-font-weight: 400;
-user-select:none;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: poppins;
+  font-weight: 400;
+  user-select: none;
 }
-body{ margin:0; 
+
+body {
+  margin: 0;
   background-color: #111;
   color: #ffffff;
- 
+
 }
 
 
 @keyframes start {
-  0%{
+  0% {
 
     opacity: 0;
   }
-  100%{
-   
+
+  100% {
+
     opacity: 1;
   }
 }
 
 .container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  }
-  
-  .menu {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .game {
+}
+
+.menu {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.game {
   animation: show 2s 0.8s forwards;
   transform-origin: top;
-   height: 100%;
-    width: 100%;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .buttons-wrapper{
-    display: flex;
-    gap: 0.5rem;
-  }
-  .start-button{
-    animation: show 2s 0.8s forwards;
-    transform-origin: center;
-    display: flex;
-    opacity: 0;
-    background-color: #009389;
-    padding: 0rem 0.5rem;
-    font-size: 2rem;
-    border: 0;
-    border-radius: 8px;
-    cursor: pointer;
-  transition: .5s;
-border: 4px solid #006059;
-color: #111;
-font-weight: 500;  
-margin-top: 1rem;
-  }
-  .start-button:hover{
-    background-color: #00d3c5;
-    border: 4px solid #009288;
-    }
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+}
 
-.reset-button{
+.buttons-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.start-button {
+  animation: show 2s 0.8s forwards;
+  transform-origin: center;
+  display: flex;
+  opacity: 0;
+  background-color: #009389;
+  padding: 0rem 0.5rem;
+  font-size: 2rem;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .5s;
+  border: 4px solid #006059;
+  color: #111;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.start-button:hover {
+  background-color: #00d3c5;
+  border: 4px solid #009288;
+}
+
+.reset-button {
   transform-origin: center;
   filter: brightness(0.9);
   background-color: #c83a3a;
   border: 4px solid #961212;
   display: none;
 }
-.reset-button:hover{
+
+.reset-button:hover {
   background-color: #c62a2a;
   border: 4px solid #961212;
   filter: brightness(1.1);
 }
 
- 
 
-  @keyframes show {
-    0%{
-      scale: 0.9;
-      opacity: 0;
-    }
-  
-    100%{
-      scale: 1;
-      opacity: 1;
-    }
-   } 
+
+@keyframes show {
+  0% {
+    scale: 0.9;
+    opacity: 0;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
 
 
 @keyframes updateScore {
-  0%{
+  0% {
     color: #6aff6a;
 
   }
-  50%{
+
+  50% {
     color: #bffebf;
 
   }
-    100%{
-      color: #6aff6a;
- 
+
+  100% {
+    color: #6aff6a;
+
   }
 }
 
 @keyframes updateHighScore {
-  0%{
+  0% {
     scale: 1;
-  
+
   }
-  50%{
+
+  50% {
     color: yellow;
     scale: 1.5;
-  
+
   }
-    100%{
-      scale: 1;
-  
+
+  100% {
+    scale: 1;
+
   }
-  
+
 }
 
 
-  #score{
-    color: #6aff6a;
-    font-size: 1.5rem;
-    margin-top: 1rem; 
-  }
-  #high-score{
-    font-size: 1.5rem;
-    }
+#score {
+  color: #6aff6a;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
 
-  #input-area{
-    font-size: 1.5rem;
-    background-color: #11111100;
-    border: 0px;
-    border-bottom: 4px solid white;
-    border-style: dotted;
-    outline: none;
+#high-score {
+  font-size: 1.5rem;
+}
 
-    color: white;
-    padding: 5px;
-  }
+#input-area {
+  font-size: 1.5rem;
+  background-color: #11111100;
+  border: 0px;
+  border-bottom: 4px solid white;
+  border-style: dotted;
+  outline: none;
 
-.timer{
+  color: white;
+  padding: 5px;
+}
+
+.timer {
   color: #009389;
   font-size: 1.5rem;
 }
 
-.preparate{
+.preparate {
   color: #ff5c5c;
   text-align: center;
   font-size: 1.5rem;
 }
 
-.btn-sound{
-animation: start 1s forwards;
-background-color: rgba(245, 222, 179, 0);
+.btn-sound {
+  animation: start 1s forwards;
+  background-color: rgba(245, 222, 179, 0);
 
-border: none;
-width:25px;
-cursor: pointer;
-transition: 0.5s;
-display: flex;
-position: relative;
-right: 150px;
-top: 48px;
+  border: none;
+  width: 25px;
+  cursor: pointer;
+  transition: 0.5s;
+  display: flex;
+  position: relative;
+  right: 150px;
+  top: 48px;
 }
-.btn-sound:hover *{
+
+.btn-sound:hover * {
   fill: #ff5c5c !important;
 
 }
-.btn-silence{
+
+.btn-silence {
   animation: start 1s forwards;
   background-color: rgba(245, 222, 179, 0);
   position: relative;
   right: 150px;
   top: 48px;
   border: none;
-  width:25px;
+  width: 25px;
   cursor: pointer;
   transition: 0.5s;
   display: none;
 
 }
-.btn-silence:hover *{
+
+.btn-silence:hover * {
   fill: #6aff6a !important;
 }
-#mute-checkbox{
-opacity: 0;
-position: absolute;
-margin: 0;
-padding: 0;
-width: 0;
-visibility: hidden;
+
+#mute-checkbox {
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  visibility: hidden;
 }
 
-.mute-label{
+.mute-label {
   width: 0px;
 }
 
-.title-logo{
+.title-logo {
   animation: start 2s forwards;
   display: flex;
   width: 150px;
@@ -227,119 +244,125 @@ visibility: hidden;
 }
 
 @keyframes newScore {
-  0%{
-    scale:1;
+  0% {
+    scale: 1;
   }
-  50%{
-    scale:2;
+
+  50% {
+    scale: 2;
   }
-  100%{
-    scale:1;
+
+  100% {
+    scale: 1;
   }
 }
 
-.footer{
-display: flex;
-align-items: end;
-justify-content: center;
+.footer {
+  display: flex;
+  align-items: end;
+  justify-content: center;
 
 }
 
-#resetScore{
-font-size: 1rem;
+#resetScore {
+  font-size: 1rem;
   background-color: #ffffff00;
   border: none;
   color: rgb(77, 77, 77);
   cursor: pointer;
   padding: 0.5rem;
-  margin-top:2rem ;
+  margin-top: 2rem;
   opacity: 0;
   animation: show 3s 1s forwards;
   transition-duration: 0.4s;
   border-radius: 9px;
 }
 
-#resetScore:hover{
-color: #c83a3a;
+#resetScore:hover {
+  color: #c83a3a;
 
-box-shadow: 0px 0px 15px 2px #c83a3a;
+  box-shadow: 0px 0px 15px 2px #c83a3a;
 }
+
 /*-------------------------
           mobile
 --------------------------*/
 
-  @media(max-width:1200px)
+@media(max-width:1200px) {
+  .title-logo {
+    animation: start 2s forwards;
+    display: flex;
+    width: 350px;
+    margin-bottom: 1rem;
+  }
 
-  {
-    .title-logo{
-      animation: start 2s forwards;
-      display: flex;
-      width:350px;
-      margin-bottom: 1rem;
-    }
+  .start-button {
 
-    .start-button{
-
-      font-size: 4rem;
+    font-size: 4rem;
     margin-block: 5rem;
-    }
-    .preparate{
-      font-size: 4rem;
-      
-    }
-
-    #score{
-      font-size: 4rem;
-    
-    }
-    #input-area{
-      font-size: 4rem;
-      width: 500px;
-      border-bottom: 8px solid white;
-      border-style: dotted;
-      color: white;
-      padding: 5px;
-    }
-
-    
-.timer{
-  color: #ff63c1;
-  font-size: 4rem;
-}
-#high-score{
-  font-size: 4rem;
   }
 
-.btn-sound{
-  background-color: rgba(245, 222, 179, 0);
-  
-  border: none;
-  width:70px;
-  cursor: pointer;
-  transition: 0.5s;
-  display: flex;
-  position: relative;
-  right: 320px;
-  top: 115px;
+  .preparate {
+    font-size: 4rem;
+
   }
-  .btn-sound:hover *{
+
+  #score {
+    font-size: 4rem;
+
+  }
+
+  #input-area {
+    font-size: 4rem;
+    width: 500px;
+    border-bottom: 8px solid white;
+    border-style: dotted;
+    color: white;
+    padding: 5px;
+  }
+
+
+  .timer {
+    color: #ff63c1;
+    font-size: 4rem;
+  }
+
+  #high-score {
+    font-size: 4rem;
+  }
+
+  .btn-sound {
+    background-color: rgba(245, 222, 179, 0);
+
+    border: none;
+    width: 70px;
+    cursor: pointer;
+    transition: 0.5s;
+    display: flex;
+    position: relative;
+    right: 320px;
+    top: 115px;
+  }
+
+  .btn-sound:hover * {
     stroke: red;
   }
-  .btn-silence{
+
+  .btn-silence {
     background-color: rgba(245, 222, 179, 0);
     position: relative;
     right: 300px;
     top: 115px;
     border: none;
-    width:70px;
+    width: 70px;
     cursor: pointer;
     transition: 0.5s;
     display: none;
-  
+
   }
-  #resetScore{
-    font-size:2rem ;
+
+  #resetScore {
+    font-size: 2rem;
     margin-top: 3rem;
   }
-  }
-  
+}
